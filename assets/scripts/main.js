@@ -14,7 +14,14 @@ var radio_btns = documnet.getElementById("audio-selection");
 //     alert("Hello World!");
 //   });
 
-document.getElementById("honk-btn").addEventListener("click", function(event){
-    event.preventDefault();
-    alert("Hello World!");
-});
+// document.getElementById("honk-btn").addEventListener("click", function(event){
+//     event.preventDefault();
+//     alert("Hello World!");
+// });
+
+document.getElementById('honk-btn').addEventListener('click', promptMe);
+
+function promptMe() {
+    var userAdjective = prompt("Please provide an Adjective");
+    alert (userAdjective);
+}
