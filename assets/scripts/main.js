@@ -15,10 +15,7 @@ var honk_btn = d
 //     alert("Hello World!");
 //   });
 
-document.getElementById("honk-btn").addEventListener("click", function(event){
-    event.preventDefault();
-    alert("Hello World!");
-});
+document.getElementById("honk-btn").addEventListener("click", set_sound_level_icon());
 
 // document.getElementById("honk-btn").addEventListener('click', promptMe);
 
@@ -30,7 +27,8 @@ document.getElementById("honk-btn").addEventListener("click", function(event){
 
 
 function set_sound_level_icon() {
-
+    preventDefault();
+    alert("Hello World!");
     if(vol_slider > 66 || vol_num > 66) {
         // be loud
         vol_image.src = "./assets/media/icons/volume-level-3.svg";
