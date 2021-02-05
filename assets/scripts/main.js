@@ -10,6 +10,11 @@ var vol_image = documnet.getElementById("volume-image");
 var vol_num = documnet.getElementById("volume-number");
 var radio_btns = documnet.getElementById("audio-selection");
 
-document.getElementById("honk-btn").addEventListener("click", function() {
+// document.getElementById("honk-btn").addEventListener("click", function() {
+//     alert("Hello World!");
+//   });
+
+document.getElementById("honk-btn").addEventListener("click", function(event){
+    event.preventDefault();
     alert("Hello World!");
-  });
+});
