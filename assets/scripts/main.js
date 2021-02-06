@@ -1,7 +1,6 @@
 // main.js
 
-// TODO
-// Input field that serves as the textual indicator of sound level
+// VARIABLES:
 
 var audtype = document.getElementById("horn-sound");
 var vol_slider = document.getElementById("volume-slider");
@@ -15,39 +14,68 @@ var radio_btns = document.getElementById("audio-selection");
 //     alert("Hello World!");
 //   });
 
+
+// ACTIONS:
+
+// press the honk button
 document.getElementById("honk-btn").addEventListener("click", function(event){
     event.preventDefault();
     //set_sound_level_icon();
     play_sound();
 });
 
+// move slider -> change volume
+vol_slider.addEventListener("mousemove", change_volume());
 
-
-// play sound when button pressed
-function play_sound() {
-    audtype.play();
-}
-
-// if slider changes, adjust num
+// move slider -> change num
 vol_slider.addEventListener("click", set_num_vol());
 
-function set_num_vol() {
-    vol_num = vol_slider;
-}
-
-// if num changes, adjust slider
-vol_num.addEventListener("click", set_slider_vol());
-
-function set_slider_vol() {
-    vol_slider = vol_num;
-}
-
-// adjust the slider bar
+// move slider  -> set sound level icon
 vol_slider.addEventListener("change", function(event){
     event.preventDefault();
     set_sound_level_icon();
 });
 
+// num changes -> move slider
+vol_num.addEventListener("click", set_slider_vol());
+
+// switch radio button -> change image and sound
+radio_btns.addEventListener("change", change_image_and_sound());
+
+
+
+
+
+
+// FUNCTIONS:
+
+
+// play sound when button pressed
+function play_sound() {
+    audtype.play();
+};
+
+
+// change volume based on slider
+function change_volume() {
+    audtype.volume = vol_slider.value/100;
+
+};
+
+
+// change num based on slider
+function set_num_vol() {
+    vol_num = vol_slider;
+};
+
+
+// change slider based on num
+function set_slider_vol() {
+    vol_slider = vol_num;
+};
+
+
+// change sound level icons based on volume
 function set_sound_level_icon() {
     
     if(vol_slider > 66 || vol_num > 66) {
@@ -65,12 +93,10 @@ function set_sound_level_icon() {
         vol_image.src = "assets/media/icons/volume-level-0.svg";
     }
 
-}
+};
 
 
-// switching the image based on radio button selected
-radio_btns.addEventListener("change", change_image_and_sound());
-
+// change iamge and sound based on radio button
 function change_image_and_sound() {
     if(radio_btns == "radio-air-horn-container") {
         // air horn
@@ -88,17 +114,10 @@ function change_image_and_sound() {
         audtype.src = "assets/media/audio/party-horn.mp3";
     }
 
-}
+};
 
 
 
-
-
-// change_volume() {
-    
-//     video.volume = slider.value/100;
-
-// };
 
 
 // var video = document.getElementById('video');
