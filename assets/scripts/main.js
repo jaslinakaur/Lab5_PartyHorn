@@ -30,7 +30,7 @@ vol_num.addEventListener("change", function(event){
     set_sound_level_icon();
 });
 
-// sldie changed -> CHANGE VOLUME
+// slider changed -> CHANGE VOLUME
 vol_slider.addEventListener("change", function(event) {
     event.preventDefault();
     set_num_vol();
@@ -38,6 +38,7 @@ vol_slider.addEventListener("change", function(event) {
     set_sound_level_icon();
 });
 
+// radio button switched -> change the image and sound
 radio_btns.addEventListener("change", function(event){
     event.preventDefault();
     change_image_and_sound();
@@ -52,14 +53,12 @@ radio_btns.addEventListener("change", function(event){
 
 // play sound when button pressed
 function play_sound() {
-    //alert(audtype.volume);
     audtype.play();
 };
 
 
 // change volume based on slider
 function change_volume() {
-    //alert(vol_num.value);
     audtype.volume = vol_num.value/100;
 
 };
