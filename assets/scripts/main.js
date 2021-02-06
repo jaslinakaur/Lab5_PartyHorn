@@ -17,9 +17,16 @@ var radio_btns = document.getElementById("audio-selection");
 
 document.getElementById("honk-btn").addEventListener("click", function(event){
     event.preventDefault();
-    set_sound_level_icon();
+    //set_sound_level_icon();
+    play_sound();
 });
 
+
+
+// play sound when button pressed
+function play_sound() {
+    audtype.play();
+}
 
 // if slider changes, adjust num
 vol_slider.addEventListener("click", set_num_vol());
@@ -62,20 +69,29 @@ function set_sound_level_icon() {
 
 
 // switching the image based on radio button selected
-radio_btns.addEventListener("change", change_image());
+radio_btns.addEventListener("change", change_image_and_sound());
 
-function change_image() {
+function change_image_and_sound() {
     if(radio_btns == "radio-air-horn-container") {
-        // air horn image
+        // air horn
         horn_image.src = "assets/media/images/air-horn.svg";
+        audtype.src = "assets/media/audio/air-horn.mp3";
+
     } else if(radio_btns == "radio-car-horn-container") {
-        // car horn image
+        // car horn
         horn_image.src = "assets/media/images/car.svg";
-    } else { // party horn image
+        audtype.src = "assets/media/audio/car-horn.mp3";
+
+    } else if(radio_btns == "radio-party-horn-container") {
+        // party horn
         horn_image.src = "assets/media/images/party-horn.svg";
+        audtype.src = "assets/media/audio/party-horn.mp3";
     }
 
 }
+
+
+
 
 
 // change_volume() {
